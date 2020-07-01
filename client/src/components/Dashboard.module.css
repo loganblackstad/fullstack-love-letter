@@ -13,3 +13,8 @@ Link {
 .Players {
   margin-top: 50px;
 }
+
+.PlayerRow{
+  display: flex;
+  flex-direction: row;
+}
