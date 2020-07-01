@@ -37,14 +37,18 @@ export default class App extends Component {
       players: ['lachlan', 'joe', 'wes', 'liz'],
       name: '',
       initialDiscard: 4,
-      cardsInDeck: [6, 4, 2, 2, 3, 1, 1, 8,],
+      cardsInDeck: [6, 4, 2, 2, 3, 1, 1, 8],
       cardsPlayed: [1, 3, 5, 7]
     }
   }
 
   playCard = () => {
-    const cardToBePlayed = this.state.cardsInDeck.filter(movie => movie !== movieToRemove);
-    this.setState({ watchList: filteredWatchList });
+    const cardToBePlayed = this.state.cardsInDeck.pop();
+    var updatedCardsPlayed = this.state.cardsPlayed.push(cardToBePlayed);
+    this.setState({ cardsInDeck: this.state.cardsInDeck });
+    this.setState({ cardsPlayed: updatedCardsPlayed });
+    console.log(this.state.cardsInDeck);
+    console.log(this.state.cardsPlayed);
   }
 
   render() {
@@ -61,7 +65,7 @@ export default class App extends Component {
               {/*
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>Back to Dashboard</Link>
               */}
-              <Button variant="secondary" onClick={this.playCard} Play Card</Button>
+              <Button variant="secondary" onClick={this.playCard}> Play Card</Button>
               <CardsPlayed cardsPlayed={this.state.cardsPlayed} />
               <Card strength={this.state.initialDiscard} />
 
