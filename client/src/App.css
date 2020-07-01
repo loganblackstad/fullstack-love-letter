@@ -45,3 +45,35 @@
 .dashboard{
   text-align: center;
 }
+
+
+/* START --  ./components/Header.jsx */
+
+.HeaderText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #b5b5b5;
+  margin: 0;
+}
+
+.pHeader {
+  margin: 5px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.aTitle:hover {
+  text-decoration: none;
+}
+
+
+/* END --  ./components/Header.jsx */

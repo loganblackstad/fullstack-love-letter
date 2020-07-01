@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+// import axios from "axios";
 import Card from './components/Card';
-import RecipeDetails from './components/RecipeDetails';
-import RecipeForm from './components/RecipeForm';
 import Dashboard from './components/Dashboard';
+// import InitialDeck from "./Components/InitialDeck";
+// import ThreePiles from "./Components/ThreePiles";
+import Header from "./components/Header";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 
 export default class App extends Component {
@@ -24,6 +27,7 @@ export default class App extends Component {
     return (
       <BrowserRouter>
         <div className="App">
+          <Header />
           <Switch>
             <Route path="/" exact>
               <Dashboard players={this.state.players} />
@@ -32,8 +36,10 @@ export default class App extends Component {
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>Back to Dashboard</Link>
               <Card />
             </Route>
-            <Route path="/recipes/new" exact component={RecipeForm} />
-            <Route path="/recipes/:id" component={RecipeDetails} />
+            {/* 
+            <Route path="/recipes/new" />
+            <Route path="/recipes/:id" /> 
+            */}
 
           </Switch>
         </div>
