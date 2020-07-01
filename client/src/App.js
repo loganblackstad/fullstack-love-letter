@@ -42,13 +42,13 @@ export default class App extends Component {
     }
   }
 
-  playCard = () => {
-    const cardToBePlayed = this.state.cardsInDeck.pop();
-    var updatedCardsPlayed = this.state.cardsPlayed.push(cardToBePlayed);
-    this.setState({ cardsInDeck: this.state.cardsInDeck });
+  addCardToPlayerHand = () => {
+    var updatedCardsInDeck = [...this.state.cardsInDeck];
+    var cardToBePlayed = updatedCardsInDeck.pop();
+    var updatedCardsPlayed = [...this.state.cardsPlayed];
+    updatedCardsPlayed.push(cardToBePlayed);
+    this.setState({ cardsInDeck: updatedCardsInDeck });
     this.setState({ cardsPlayed: updatedCardsPlayed });
-    console.log(this.state.cardsInDeck);
-    console.log(this.state.cardsPlayed);
   }
 
   render() {
@@ -65,7 +65,7 @@ export default class App extends Component {
               {/*
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>Back to Dashboard</Link>
               */}
-              <Button variant="secondary" onClick={this.playCard}> Play Card</Button>
+              <Button variant="secondary" onClick={this.addCardToPlayerHand}> Next Move</Button>
               <CardsPlayed cardsPlayed={this.state.cardsPlayed} />
               <Card strength={this.state.initialDiscard} />
 

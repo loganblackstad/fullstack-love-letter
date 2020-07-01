@@ -7,13 +7,13 @@ import cardList from '../CardList'
 export default class Card extends Component {
 
   componentDidMount() {
-    console.log(this.props.strength);
+    // console.log(this.props.strength);
   }
 
   render() {
-    console.log(cardList);
+    // console.log(cardList);
     const cardRef = cardList[this.props.strength];
-    console.log(cardRef.img);
+    // console.log(cardRef.img);
     return (
       <div>
         <div>
