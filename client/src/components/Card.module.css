@@ -3,7 +3,6 @@
   margin: 5px;
   cursor: pointer;
   position: relative;
-  perspective: 800px;
 }
 
 .CardInner {
@@ -24,7 +23,7 @@
 }
 
 .CardBack {
-  background-image: url('../img/c1.png');
+  /* background-image: url('../img/c1.png'); */
 }
 
 .CardFront,
