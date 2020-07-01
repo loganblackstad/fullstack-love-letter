@@ -15,17 +15,9 @@ export default class Card extends Component {
     const cardRef = cardList[this.props.strength];
     // console.log(cardRef.img);
     return (
-      <div>
-        <div>
-          <div className={styles.Card}>
-            <div className={styles.CardInner}>
-              <div className={styles.CardBack} style={{ backgroundImage: `url(${cardRef.img})` }}>
-              </div>
-              <div className={styles.CardFront}>
-                test
-              </div>
-            </div>
-          </div>
+      <div className={styles.Card}>
+        <div className={styles.CardInner}>
+          <img src={cardRef.img} className={styles.CardBack} />
         </div>
       </div>
     )

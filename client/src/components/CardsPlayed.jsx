@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import styles from './PlayedCards.module.css';
+import styles from './CardsPlayed.module.css';
 import { Form, Button, Row, Col, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
-import cardList from '../CardList'
 import Card from './Card';
 
 
@@ -16,8 +15,16 @@ export default class CardsPlayed extends Component {
   render() {
     const cardsPlayed = this.props.cardsPlayed;
     return (
-      <div>
-        {cardsPlayed.map(str => { return <Card strength={str} /> })}
+      <div className={styles.CardsPlayed}>
+        {
+          cardsPlayed.map(str => {
+            return (
+              <div className={styles.CardContainer}>
+                <Card strength={str} />
+              </div>
+            )
+          })
+        }
       </div>
     )
   }
