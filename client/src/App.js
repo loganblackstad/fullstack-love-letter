@@ -7,10 +7,12 @@ import { Form, Button, Row, Col, FormGroup, FormControl, ControlLabel } from 're
 import Card from './components/Card';
 import CardsPlayed from './components/CardsPlayed';
 import Dashboard from './components/Dashboard';
+import ModalCheatSheet from './components/ModalCheatSheet'
 // import InitialDeck from "./Components/InitialDeck";
 // import ThreePiles from "./Components/ThreePiles";
 import Header from "./components/Header";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+
 
 const cardList = require('./CardList')
 
@@ -42,6 +44,10 @@ export default class App extends Component {
     }
   }
 
+  // LOGIC: Shuffle Deck
+
+
+
   addCardToPlayerHand = () => {
     var updatedCardsInDeck = [...this.state.cardsInDeck];
     var cardToBePlayed = updatedCardsInDeck.pop();
@@ -65,6 +71,9 @@ export default class App extends Component {
               {/*
               <Link to="/" style={{ textDecoration: "none", color: "white" }}>Back to Dashboard</Link>
               */}
+
+              <ModalCheatSheet />
+
               <Button variant="secondary" onClick={this.addCardToPlayerHand}> Next Move</Button>
               <CardsPlayed cardsPlayed={this.state.cardsPlayed} />
               <Card strength={this.state.initialDiscard} />

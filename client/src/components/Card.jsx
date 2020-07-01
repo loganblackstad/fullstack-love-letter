@@ -6,8 +6,15 @@ import cardList from '../CardList'
 
 export default class Card extends Component {
 
+
   componentDidMount() {
     // console.log(this.props.strength);
+  }
+
+  transformStyle = (ind) => {
+    var multiplier = -120 * ind;
+    let style = `translate(${multiplier}px)`;
+    return { transform: style }
   }
 
   render() {
@@ -15,7 +22,7 @@ export default class Card extends Component {
     const cardRef = cardList[this.props.strength];
     // console.log(cardRef.img);
     return (
-      <div className={styles.Card}>
+      <div className={styles.Card} style={this.transformStyle(this.props.ind || 0)}>
         <div className={styles.CardInner}>
           <img src={cardRef.img} className={styles.CardBack} />
         </div>

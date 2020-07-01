@@ -12,15 +12,20 @@ export default class CardsPlayed extends Component {
     console.log(this.props.cardsPlayed);
   }
 
+
+
   render() {
+
     const cardsPlayed = this.props.cardsPlayed;
+
     return (
-      <div className={styles.CardsPlayed}>
+      <div className={styles.CardsPlayed} >
+        <p>Cards Played: </p>
         {
-          cardsPlayed.map(str => {
+          cardsPlayed.map((strength, ind) => {
             return (
               <div className={styles.CardContainer}>
-                <Card strength={str} />
+                <Card strength={strength} ind={ind} />
               </div>
             )
           })

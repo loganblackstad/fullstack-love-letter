@@ -7,14 +7,14 @@
 
 .CardInner {
   width: 300px;
-  /* height: 420px; */
   max-width: 100%;
+  /* height: 420px; */
   /* max-height: 100%; */
-  transform-style: preserve-3d;
-  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border-radius: 5px;
-  border: 1px solid #193D49;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  /* transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+  /* border-radius: 5px; */
+  /* border: 1px solid #193D49; */
+  
 }
 
 .CardFront {
@@ -32,4 +32,9 @@
 
 .CardInner.flipped {
   transform: rotateY(180deg);
+}
+
+img{
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
