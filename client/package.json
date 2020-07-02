@@ -15,6 +15,7 @@
     "react-dom": "^16.13.1",
     "react-loader-spinner": "^3.1.14",
     "react-router-dom": "^5.2.0",
+    "react-script-tag": "^1.1.2",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -27,6 +28,7 @@
     "extends": "react-app"
   },
   "proxy": "http://localhost:3001/",
+  "secure": false,
   "browserslist": {
     "production": [
       ">0.2%",
