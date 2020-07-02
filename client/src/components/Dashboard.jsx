@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import styles from './Dashboard.module.css';
 import { Button, Row, Col, Container } from 'react-bootstrap';
+import ReactBootstrapStyle from '@bit/react-bootstrap.react-bootstrap.internal.style-links';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 

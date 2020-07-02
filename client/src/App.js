@@ -2,10 +2,12 @@ import React, { Component, useState, useEffect } from 'react';
 import './App.css';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 import { Form, Button, Row, Col, FormGroup, FormControl, ControlLabel } from 'react-bootstrap';
+import ReactBootstrapStyle from '@bit/react-bootstrap.react-bootstrap.internal.style-links';
 
 // import axios from "axios";
 import Card from './components/Card';
 import CardsPlayed from './components/CardsPlayed';
+import Hand from './components/Hand';
 import Dashboard from './components/Dashboard';
 import ModalCheatSheet from './components/ModalCheatSheet'
 // import InitialDeck from "./Components/InitialDeck";
@@ -40,7 +42,12 @@ export default class App extends Component {
       name: '',
       initialDiscard: 4,
       cardsInDeck: [6, 4, 2, 2, 3, 1, 1, 8],
-      cardsPlayed: [1, 3, 5, 7]
+      cardsPlayed: [1, 3, 5, 7],
+      playerHandOne: [1, 2],
+      playerHandTwo: [3],
+      playerHandThree: [4],
+      playerHandFour: [8],
+
     }
   }
 
@@ -74,9 +81,13 @@ export default class App extends Component {
 
               <ModalCheatSheet />
 
-              <Button variant="secondary" onClick={this.addCardToPlayerHand}> Next Move</Button>
+              <Button variant="primary" style={{ width: "150px" }} onClick={this.addCardToPlayerHand}> Next Move</Button>
               <CardsPlayed cardsPlayed={this.state.cardsPlayed} />
               <Card strength={this.state.initialDiscard} />
+              <Hand playerHand={this.state.playerHandOne} />
+              <Hand playerHand={this.state.playerHandTwo} />
+              <Hand playerHand={this.state.playerHandThree} />
+              <Hand playerHand={this.state.playerHandFour} />
 
             </Route>
             {/* 

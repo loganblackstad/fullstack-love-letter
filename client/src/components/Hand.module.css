@@ -1,0 +1,18 @@
+.PlayerHand {
+  display: flex;
+  margin: 5px;
+  cursor: pointer;
+  position: relative;
+  transform: translate(120px);
+}
+
+.CardContainer {
+  width: 200px;
+  /* height: 140px; */
+  transform: translate(60px);
+  /* transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 5px;
+  border: 1px solid #193D49;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15); */
+}

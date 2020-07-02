@@ -78,11 +78,10 @@ a {
   font-family: "Roboto Mono", monospace;
   font-size: 16px;
   margin: 5px;
-  width: 300px;
 }
 
-.aTitle{
-  width: 300px;
+.aTitle, .pHeader {
+  width: 400px;
 }
 
 a:hover {
@@ -96,3 +95,8 @@ a:hover {
 
 
 /* END --  ./components/Header.jsx */
+
+
+.button {
+  margin: 10px;
+}

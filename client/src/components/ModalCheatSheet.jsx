@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Button, Modal } from 'react-bootstrap';
 import ReactBootstrapStyle from '@bit/react-bootstrap.react-bootstrap.internal.style-links';
-
+import cardList from '../img/c-list-of-cards.png';
 
 class ModalCheatSheet extends Component {
   constructor(props, context) {
@@ -26,7 +26,7 @@ class ModalCheatSheet extends Component {
   render() {
     return (
       <>
-        <Button variant="primary" onClick={this.handleShow}>
+        <Button variant="info" className="m-2" style={{ width: "150px" }} onClick={this.handleShow}>
           Cheat Sheet
         </Button>
 
@@ -34,20 +34,20 @@ class ModalCheatSheet extends Component {
           <Modal.Header closeButton>
             <Modal.Title>Cheat Sheet</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
+          <Modal.Body><img src={cardList} alt="List of Cards" /></Modal.Body>
+          {/* <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose}>
               Close
             </Button>
-            {/* <Button variant="primary" onClick={this.handleClose}>
+            <Button variant="primary" onClick={this.handleClose}>
               Save Changes
-            </Button> */}
-          </Modal.Footer>
+            </Button> 
+          </Modal.Footer> */}
         </Modal>
       </>
     );
   }
 }
 
-// allowing for hooks --> exporting a functional component containing class components 
+// allowing for hooks --> exporting a functional component containing class components
 export default () => (<div><ReactBootstrapStyle /><ModalCheatSheet /></div>)
