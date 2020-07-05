@@ -51,6 +51,7 @@ export default class App extends Component {
       playerHandFour: [8],
       roomCodes: ['WXFS', 'LHDQ', 'NVDW'],
       randomRoom: 'XXXX',
+      randRoom: 'YYYY',
       number: 3,
     }
   }
@@ -69,6 +70,7 @@ export default class App extends Component {
   componentDidMount() {
     this.setState({ number: this.generateNumber() })
     this.setState({ randomRoom: this.generateRandomRoom() })
+    this.setState({ randRoom: this.GenerateRandomRoom })
   }
 
   generateRandomRoom = () => {
@@ -78,11 +80,6 @@ export default class App extends Component {
     for (var i = 0; i < 4; i++) {
       randomRoomCode += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
-
-    // Alternatively:
-    // var randomCapitalLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-
-    console.log(randomRoomCode);
     return randomRoomCode;
   }
 
@@ -105,7 +102,9 @@ export default class App extends Component {
   render() {
     console.log(cardList);
     console.log(GenerateRandomRoom);
-    console.log(this.state.number);
+    console.log("randomRoom: " + this.state.randomRoom);
+    console.log("randRoom: " + this.state.randRoom);
+
 
     return (
       <BrowserRouter>

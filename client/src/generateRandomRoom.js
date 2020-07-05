@@ -9,10 +9,7 @@ var GenerateRandomRoom = () => {
   // Alternatively:
   // var randomCapitalLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
 
-  console.log(randomRoomCode);
   return randomRoomCode;
 }
-
-// console.log(GenerateRandomRoom);
 
 export default { GenerateRandomRoom };
