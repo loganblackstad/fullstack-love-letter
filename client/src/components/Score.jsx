@@ -21,24 +21,34 @@ export default class Score extends Component {
 
   render() {
 
-    const scoreArr = this.props.scoreArr;
-    const highestLastCard = {};
+    const arrCountOfLoveLetters = this.props.arrCountOfLoveLetters;
+    const finalHands = this.props.finalHands;
+    const winningHand = {};
 
     return (
       <div className={styles.Score} >
-        <p>Love Letter reached the ${}: </p>
+
+        {/* <p>Love Letter reached the ${//PRINCESS}: </p> */}
+        <hr />
+
+        <p>The Love Letter reached the ${}: </p>
+        <img src={} alt="A Love Letter Token" className={styles.CurrentLoveLetterToken} />
+
+        <hr />
+
         {
-          finalCards.map((strength, ind) => {
+          finalHands.map((playerName, finalCardStrength) => {
             return (
               <div className={styles.CardContainer}>
-                <Card strength={strength} ind={ind} />
-                <p>player</p>
-                <><>
-                </div>
+                <Card strength={finalCardStrength} ind={ind} />
+                <p>{playerName}</p>
+                <div>{renderMultipleLoveLetters(playerScore)}</div>
+              </div>
             )
           })
         }
-                </div>
+
+      </div>
     )
   }
 }

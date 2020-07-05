@@ -18,3 +18,7 @@ Link {
   display: flex;
   flex-direction: row;
 }
+
+.LoveLetterToken{
+  width: 50px;
+}

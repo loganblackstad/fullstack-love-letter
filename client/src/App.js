@@ -40,18 +40,48 @@ export default class App extends Component {
     // const [playerHandFour, setPlayerHandFour] = useState(false); // Player 4 Hand containing 1 or 2 cards
 
     this.state = {
-      players: ['lachlan', 'joe', 'wes', 'liz'],
+      // define state of game play
+      arrOfPlayers: {
+        '1': {
+          name: 'lachlan',
+          currCard: 1,
+          loveLetters: 2,
+          isVisible: true,
+        },
+        '2': {
+          name: 'joe',
+          currCard: 3,
+          loveLetters: 0,
+          isVisible: true,
+        },
+        '3': {
+          name: 'wes',
+          currCard: 5,
+          loveLetters: 2,
+          isVisible: true,
+        },
+        '4': {
+          name: 'liz',
+          currCard: 8,
+          loveLetters: 1,
+          isVisible: true,
+        },
+      },  
+      roomCodes: ['WXFS', 'LHDQ', 'NVDW'],
+      randomRoom: 'XXXX',
+      randRoom: 'YYYY',
+
       name: '',
+
+      // state for current game
       initialDiscard: 4,
+      standardDeck: [1,1,1,1,1,2,2,3,3,4,4,5,5,6,7,8],
       cardsInDeck: [6, 4, 2, 2, 3, 1, 1, 8],
       cardsPlayed: [1, 3, 5, 7],
       playerHandOne: [1, 2],
       playerHandTwo: [3],
       playerHandThree: [4],
       playerHandFour: [8],
-      roomCodes: ['WXFS', 'LHDQ', 'NVDW'],
-      randomRoom: 'XXXX',
-      randRoom: 'YYYY',
       number: 3,
     }
   }
@@ -71,6 +101,11 @@ export default class App extends Component {
     this.setState({ number: this.generateNumber() })
     this.setState({ randomRoom: this.generateRandomRoom() })
     this.setState({ randRoom: this.GenerateRandomRoom })
+    this.setState({ initialDiscard: this.generateRandomDiscard() })
+    // this.setState({ playerHandOne: this. })
+    // this.setState({ playerHandTwo: this. })
+    // this.setState({ playerHandThree: this. })
+    // this.setState({ playerHandFour: this. })
   }
 
   generateRandomRoom = () => {
@@ -81,6 +116,16 @@ export default class App extends Component {
       randomRoomCode += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return randomRoomCode;
+  }
+
+  generateRandomDiscard = () => {
+    var initialDiscard =  Math.floor(Math.random() * (15 - 0 + 1) + 0)
+    return initialDiscard;
+  }
+
+  generateInitialHands = () => {
+    var initialDiscard =  Math.floor(Math.random() * (15 - 0 + 1) + 0)
+    return initialDiscard;
   }
 
   generateNumber = () => {
@@ -118,7 +163,7 @@ export default class App extends Component {
 
             {/* render Dashboard component */}
             <Route path="/" exact>
-              <Dashboard players={this.state.players} />
+              <Dashboard players={this.state.players} arrOfPlayers={this.state.arrOfPlayers}/>
             </Route>
 
             {/* render Route for main room */}
