@@ -25,7 +25,7 @@ export default class CardsPlayed extends Component {
           cardsPlayed.map((strength, ind) => {
             return (
               <div className={styles.CardContainer}>
-                <Card strength={strength} ind={ind} />
+                <Card strength={strength} ind={ind} selected={false} index={null} />
               </div>
             )
           })

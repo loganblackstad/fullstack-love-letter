@@ -5,7 +5,13 @@ import Card from './Card';
 
 
 export default class Hand extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      selected: null,
+    }
+  }
   // const cardRef = CardList[{ this.props.initialDiscard }]
 
   componentDidMount() {
@@ -13,6 +19,9 @@ export default class Hand extends Component {
     // console.log(this.props.playerHand);
   }
 
+  handleClick = (i) => {
+    this.setState({ selected: i });
+  }
 
   render() {
 
@@ -23,7 +32,7 @@ export default class Hand extends Component {
           this.props.playerHand.map((strength, ind) => {
             return (
               <div className={styles.CardContainer}>
-                <Card strength={strength} ind={0} selected={false} />
+                <Card strength={strength} ind={0} selected={this.state.selected} index={ind} handleClick={() => { this.handleClick(ind) }} />
               </div>
             )
           })

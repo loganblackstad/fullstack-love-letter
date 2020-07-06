@@ -12,6 +12,18 @@ export const GenerateRandomRoom = () => {
   return randomRoomCode;
 }
 
+
+
 export const Function2 = () => {
   var randomRoomCode = '';
+}
+
+
+export const GenerateRandomDiscard = () => {
+  let initialDiscardIndex = Math.floor(Math.random() * (15 - 0 + 1) + 0);
+  let standardDeck = [...this.state.standardDeck];
+  let ind = standardDeck.findIndex((ele) => ele == initialDiscardIndex);
+  let updatedCardsInDeck = standardDeck.splice(ind, 1);
+  this.setState({ cardsInDeck: standardDeck });
+  return initialDiscardIndex;
 }

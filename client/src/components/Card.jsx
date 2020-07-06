@@ -5,7 +5,13 @@ import { Form, Button, Row, Col, FormGroup, FormControl, ControlLabel } from 're
 import cardList from '../CardList'
 
 export default class Card extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      selected: false,
+    }
+  }
 
   componentDidMount() {
     // console.log(String(this.props.strength));
@@ -18,17 +24,15 @@ export default class Card extends Component {
     return { transform: style }
   }
 
-  handleClick = () => {
 
-  }
 
   render() {
     console.log(cardList);
     const cardRef = cardList[String(this.props.strength)];
-    let isSelected = { border: '3px solid yellow' };
+    let isSelected = false;
     // console.log(cardRef);
     return (
-      <div className={styles.Card} style={{ ...this.transformStyle(this.props.ind || 0), isSelected }} onClick={this.handleClick}>
+      <div className={styles.Card} style={this.props.selected === this.props.index ? { ...this.transformStyle(this.props.ind), border: '3px solid yellow' } : this.transformStyle(this.props.ind)} onClick={this.props.handleClick}>
         <div className={styles.CardInner}>
           <img src={cardRef.img} className={styles.CardBack} />
         </div>

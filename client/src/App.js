@@ -7,8 +7,9 @@ import ReactBootstrapStyle from '@bit/react-bootstrap.react-bootstrap.internal.s
 import Script from 'react-script-tag';
 import {
   GenerateRandomRoom,
+  GenerateRandomDiscard,
   Function2
-} from './generateRandomRoom.js';
+} from './appMethods.js';
 
 // import axios from "axios";
 import Card from './components/Card';
@@ -81,10 +82,10 @@ export default class App extends Component {
       name: '',
 
       // state for current game
-      initialDiscardIndex: 4,
+      initialDiscard: 4,
       standardDeck: [1, 1, 1, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8],
       cardsInDeck: [1, 1, 3, 4, 5, 6],
-      cardsPlayed: [1, 2],
+      cardsPlayed: [],
     }
   }
 
@@ -100,12 +101,14 @@ export default class App extends Component {
 
 
   componentDidMount() {
-    this.setState({ number: this.generateNumber(), randomRoom: this.generateRandomRoom() })
-    // this.setState({ randomRoom: this.generateRandomRoom() })
-    this.setState({ randRoom: GenerateRandomRoom() })
-    this.setState({ initialDiscardIndex: this.generateRandomDiscard() })
-    this.setState({ currentPlayer: this.state.arrOfPlayers['1'] })
+    this.setState({ randomRoom: this.generateRandomRoom() });
+    // this.setState({ randomRoom: this.generateRandomRoom() });
+    this.setState({ randRoom: GenerateRandomRoom() });
+    this.setInitialGameState();
+    // this.generateInitialHands();
+    this.setState({ currentPlayer: this.state.arrOfPlayers['1'] });
 
+    // GenerateRandomDiscard();
     // this.setState({ playerHandOne: this. })
     // this.setState({ playerHandTwo: this. })
     // this.setState({ playerHandThree: this. })
@@ -113,37 +116,80 @@ export default class App extends Component {
   }
 
   generateRandomRoom = () => {
-    var randomRoomCode = '';
-    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var charactersLength = characters.length; // == 26
-    for (var i = 0; i < 4; i++) {
+    let randomRoomCode = '';
+    let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    let charactersLength = characters.length; // == 26
+    for (let i = 0; i < 4; i++) {
       randomRoomCode += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return randomRoomCode;
   }
 
-  generateRandomDiscard = () => {
+  setInitialGameState = () => {
     let initialDiscardIndex = Math.floor(Math.random() * (15 - 0 + 1) + 0);
     let standardDeck = [...this.state.standardDeck];
-    let ind = standardDeck.findIndex((ele) => ele == initialDiscardIndex);
-    let updatedCardsInDeck = standardDeck.splice(ind, 1);
-    this.setState({ cardsInDeck: standardDeck });
-    return initialDiscardIndex;
+    // let ind = standardDeck.findIndex((ele) => ele == initialDiscardIndex);
+    // console.log("ind:");  
+    // console.log(ind);
+    let initialDiscard = standardDeck.splice(initialDiscardIndex, 1);
+    console.log('standarddeck:')
+    console.log(standardDeck)
+    // this.setState({ cardsInDeck: standardDeck });
+
+    let arr = { ...this.state.arrOfPlayers };
+    let a = standardDeck;
+    console.log("a:");
+    console.log(a);
+    let n;
+    let r = [];
+    for (n = 1; n <= 5; ++n) {
+      let i = Math.floor((Math.random() * (15 - n)) + 1);
+      r.push(a[i]);
+      a.splice(i, 1)
+    }
+    console.log(a);
+    console.log(r);
+
+    arr['1'].hand = r.slice(0, 2);
+    arr['2'].hand = r.slice(2, 3);
+    arr['3'].hand = r.slice(3, 4);
+    arr['4'].hand = r.slice(4, 5);
+
+    this.setState({ arrOfPlayers: arr });
+    this.setState({ cardsInDeck: a });
+    this.setState({ initialDiscard: initialDiscard });
+
   }
 
-  generateInitialHands = () => {
-    var initialDiscard = Math.floor(Math.random() * (15 - 0 + 1) + 0)
-    return initialDiscard;
-  }
+  // generateInitialHands = () => {
 
-  generateNumber = () => {
-    return Math.floor(Math.random() * (10 - 0 + 1) + 0)
-  }
+  //   let arr = { ...this.state.arrOfPlayers }
+  //   let a = [...this.state.cardsInDeck];
+  //   console.log(a);
+  //   let n;
+  //   let r = [];
+  //   for (n = 1; n <= 5; ++n) {
+  //     let i = Math.floor((Math.random() * (15 - n)) + 1);
+  //     r.push(a[i]);
+  //     a.splice(i, 1)
+  //   }
+  //   console.log(a);
+  //   console.log(r);
+
+  //   arr['1'].hand = r.slice(0, 2);
+  //   arr['2'].hand = r.slice(2, 3);
+  //   arr['3'].hand = r.slice(3, 4);
+  //   arr['4'].hand = r.slice(4, 5);
+
+  //   this.setState({ arrOfPlayers: arr });
+  //   this.setState({ cardsInDeck: a });
+  // }
+
 
   addCardToPlayerHand = () => {
-    var updatedCardsInDeck = [...this.state.cardsInDeck];
-    var cardToBePlayed = updatedCardsInDeck.pop();
-    var updatedCardsPlayed = [...this.state.cardsPlayed];
+    let updatedCardsInDeck = [...this.state.cardsInDeck];
+    let cardToBePlayed = updatedCardsInDeck.pop();
+    let updatedCardsPlayed = [...this.state.cardsPlayed];
     updatedCardsPlayed.push(cardToBePlayed);
     this.setState({ cardsInDeck: updatedCardsInDeck });
     this.setState({ cardsPlayed: updatedCardsPlayed });
@@ -154,9 +200,9 @@ export default class App extends Component {
 
   render() {
     console.log(cardList);
-    console.log(GenerateRandomRoom());
-    console.log("randomRoom: " + this.state.randomRoom);
-    console.log("randRoom: " + this.state.randRoom);
+    // console.log(GenerateRandomRoom());
+    // console.log("randomRoom: " + this.state.randomRoom);
+    // console.log("randRoom: " + this.state.randRoom);
 
 
     return (
@@ -181,15 +227,11 @@ export default class App extends Component {
               <br />
               <Button variant="primary" style={{ width: "150px", marginTop: "7px" }} > Play Card</Button>
               <CardsPlayed cardsPlayed={this.state.cardsPlayed} />
-              {/* <Card strength={this.state.initialDiscardIndex} /> */}
+              <Card strength={this.state.initialDiscard} selected={false} index={null} />
               <Hand playerHand={this.state.arrOfPlayers['1'].hand} player='1' currentPlayer={this.state.currentPlayer} />
               <Hand playerHand={this.state.arrOfPlayers['2'].hand} player='2' currentPlayer={this.state.currentPlayer} />
               <Hand playerHand={this.state.arrOfPlayers['3'].hand} player='3' currentPlayer={this.state.currentPlayer} />
               <Hand playerHand={this.state.arrOfPlayers['4'].hand} player='4' currentPlayer={this.state.currentPlayer} />
-              {/* <Hand playerHand={this.state.playerHandTwo} />
-              <Hand playerHand={this.state.playerHandThree} />
-              <Hand playerHand={this.state.playerHandFour} /> */}
-
             </Route>
 
             {/* 
