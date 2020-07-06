@@ -2,7 +2,7 @@
   text-align: center;
   margin: 0 auto;
   width: 100vw;
-  height: 100vh;
+  height: 240vh;
   background-color: rgb(30,30,30);
   color: white;
 }
@@ -99,4 +99,10 @@ a:hover {
 
 .button {
   margin: 10px;
+}
+
+.Inline {
+  display: flex;
+  flex-direction: row;
+  margin-left: 120px;
 }

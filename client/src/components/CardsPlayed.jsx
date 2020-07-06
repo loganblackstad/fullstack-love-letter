@@ -20,7 +20,7 @@ export default class CardsPlayed extends Component {
 
     return (
       <div className={styles.CardsPlayed} >
-        <p>Cards Played: </p>
+        <p style={{ height: "280px" }}>Cards Played: </p>
         {
           cardsPlayed.map((strength, ind) => {
             return (

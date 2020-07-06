@@ -227,7 +227,7 @@ export default class App extends Component {
               <br />
               <Button variant="primary" style={{ width: "150px", marginTop: "7px" }} > Play Card</Button>
               <CardsPlayed cardsPlayed={this.state.cardsPlayed} />
-              <Card strength={this.state.initialDiscard} selected={false} index={null} />
+              <div className="Inline"><p style={{ marginRight: "60px" }}>Initial Discard: </p><Card style={{ height: "280px" }}strength={this.state.initialDiscard} selected={false} index={null} /></div>
               <Hand playerHand={this.state.arrOfPlayers['1'].hand} player='1' currentPlayer={this.state.currentPlayer} />
               <Hand playerHand={this.state.arrOfPlayers['2'].hand} player='2' currentPlayer={this.state.currentPlayer} />
               <Hand playerHand={this.state.arrOfPlayers['3'].hand} player='3' currentPlayer={this.state.currentPlayer} />
