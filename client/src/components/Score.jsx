@@ -9,7 +9,7 @@ export default class Score extends Component {
   // const cardRef = CardList[{ this.props.initialDiscard }]
 
   componentDidMount() {
-    console.log(this.props.scoreArr);
+    console.log(this.props.arrCountOfLoveLetters);
   }
 
   renderMultipleLoveLetters = (playerScore) => {

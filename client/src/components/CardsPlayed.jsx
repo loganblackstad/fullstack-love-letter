@@ -9,7 +9,7 @@ export default class CardsPlayed extends Component {
   // const cardRef = CardList[{ this.props.initialDiscard }]
 
   componentDidMount() {
-    console.log(this.props.cardsPlayed);
+    // console.log(this.props.cardsPlayed);
   }
 
 

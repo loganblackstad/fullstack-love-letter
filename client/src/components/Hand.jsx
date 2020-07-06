@@ -9,22 +9,21 @@ export default class Hand extends Component {
   // const cardRef = CardList[{ this.props.initialDiscard }]
 
   componentDidMount() {
-    console.log(this.props.playerHand);
+    // console.log('Player 1 Hand:');
+    // console.log(this.props.playerHand);
   }
 
 
   render() {
 
-    const { playerHand } = this.props.playerHand;
-
     return (
-      <div className={styles.PlayerHand} >
-        <p>Player Hand: </p>
+      <div className={styles.PlayerHand} style={this.props.player == this.props.currentPlayer.player ? { border: "solid 1px red" } : {}}>
+        <p>Player Hand {this.props.player}: </p>
         {
-          playerHand.map((strength, ind) => {
+          this.props.playerHand.map((strength, ind) => {
             return (
               <div className={styles.CardContainer}>
-                <Card strength={strength} ind={0} />
+                <Card strength={strength} ind={0} selected={false} />
               </div>
             )
           })

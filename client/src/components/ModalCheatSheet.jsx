@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, Modal } from 'react-bootstrap';
 import ReactBootstrapStyle from '@bit/react-bootstrap.react-bootstrap.internal.style-links';
 import cardList from '../img/c-list-of-cards.png';
+import cardList2 from '../img/cheatsheet2.jpg';
 
 class ModalCheatSheet extends Component {
   constructor(props, context) {
@@ -30,11 +31,11 @@ class ModalCheatSheet extends Component {
           Cheat Sheet
         </Button>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Cheat Sheet</Modal.Title>
+        <Modal show={this.state.show} onHide={this.handleClose} style={{ color: 'white', backgroundColor: 'rgb(90,90,90)', borderRadius: '10px' }}>
+          <Modal.Header closeButton style={{ color: 'white', backgroundColor: 'rgb(60,60,60)' }}>
+            <Modal.Title style={{ color: 'white', backgroundColor: 'rgb(60,60,60)' }}>Cheat Sheet</Modal.Title>
           </Modal.Header>
-          <Modal.Body><img src={cardList} alt="List of Cards" /></Modal.Body>
+          <Modal.Body style={{ backgroundColor: 'rgb(60,60,60)' }}><img src={cardList2} style={{ width: '100%', borderRadius: '10px' }} alt="Pictures of Cards" /></Modal.Body>
           {/* <Modal.Footer>
             <Button variant="secondary" onClick={this.handleClose}>
               Close

@@ -8,7 +8,8 @@ export default class Card extends Component {
 
 
   componentDidMount() {
-    // console.log(this.props.strength);
+    // console.log(String(this.props.strength));
+    // console.log(cardList['1']);
   }
 
   transformStyle = (ind) => {
@@ -17,12 +18,17 @@ export default class Card extends Component {
     return { transform: style }
   }
 
+  handleClick = () => {
+
+  }
+
   render() {
-    // console.log(cardList);
-    const cardRef = cardList[this.props.strength];
-    // console.log(cardRef.img);
+    console.log(cardList);
+    const cardRef = cardList[String(this.props.strength)];
+    let isSelected = { border: '3px solid yellow' };
+    // console.log(cardRef);
     return (
-      <div className={styles.Card} style={this.transformStyle(this.props.ind || 0)}>
+      <div className={styles.Card} style={{ ...this.transformStyle(this.props.ind || 0), isSelected }} onClick={this.handleClick}>
         <div className={styles.CardInner}>
           <img src={cardRef.img} className={styles.CardBack} />
         </div>

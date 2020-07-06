@@ -1,4 +1,4 @@
-var GenerateRandomRoom = () => {
+export const GenerateRandomRoom = () => {
   var randomRoomCode = '';
   var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var charactersLength = characters.length; // == 26
@@ -12,4 +12,6 @@ var GenerateRandomRoom = () => {
   return randomRoomCode;
 }
 
-export default { GenerateRandomRoom };
+export const Function2 = () => {
+  var randomRoomCode = '';
+}
