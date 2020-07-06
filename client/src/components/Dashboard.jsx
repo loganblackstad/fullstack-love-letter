@@ -23,9 +23,9 @@ export default class Dashboard extends Component {
     return (
       <div className={styles.Dashboard}>
         < hr />
-        <div>
+        <div style={{display:"flex", alignText:"center", justifyContent:"center"}}>
         <img className={styles.LoveLetterToken} src={loveletter} alt="love letter token"/>
-        <h1>Love Letter</h1>
+        <h1>&nbsp;&nbsp;Love Letter&nbsp;&nbsp;</h1>
         <img className={styles.LoveLetterToken} src={loveletter} alt="love letter token"/>
         </div>
         <hr />
@@ -36,25 +36,20 @@ export default class Dashboard extends Component {
         <h2 className={styles.Players}>Players</h2>
         <Container>
           <Row className={styles.PlayerRow}>
-            <Col xs={2}>1.&nbsp;&nbsp;&nbsp;</Col>
-            <Col xs={6}>{players[0]}</Col>
-            <Col xs={2}>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;love letters: {arrOfLoveLetters[0]}</Col>
+            <Col xs={2}>1.&nbsp;&nbsp;&nbsp;{players[0]}</Col>
+            <Col xs={2}>love letters:&nbsp;&nbsp;{arrOfLoveLetters[0]}</Col>
           </Row>
           <Row className={styles.PlayerRow}>
-            <Col xs={2}>2.&nbsp;&nbsp;&nbsp;</Col>
-            <Col xs={6}>{players[1]}</Col>
-            <Col xs={2}>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;love letters: {arrOfLoveLetters[1]}</Col>
+            <Col xs={2}>2.&nbsp;&nbsp;&nbsp;{players[1]}</Col>
+            <Col xs={2}>love letters:&nbsp;&nbsp;{arrOfLoveLetters[1]}</Col>
           </Row>
           <Row className={styles.PlayerRow}>
-            <Col xs={2}>3.&nbsp;&nbsp;&nbsp;</Col>
-            <Col xs={6}>{players[2]}</Col>
-            <Col xs={2}>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;love letters: {arrOfLoveLetters[2]}</Col>
-
+            <Col xs={2}>3.&nbsp;&nbsp;&nbsp;{players[2]}</Col>
+            <Col xs={2}>love letters:&nbsp;&nbsp;{arrOfLoveLetters[2]}</Col>
           </Row>
           <Row className={styles.PlayerRow}>
-            <Col xs={2}>4.&nbsp;&nbsp;&nbsp;</Col>
-            <Col xs={6}>{players[3]}</Col>
-            <Col xs={2}>&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;love letters: {arrOfLoveLetters[3]}</Col>
+            <Col xs={2}>4.&nbsp;&nbsp;&nbsp;{players[3]}</Col>
+            <Col xs={2}>love letters:&nbsp;&nbsp;{arrOfLoveLetters[3]}</Col>
           </Row>
         </Container>
       </div >

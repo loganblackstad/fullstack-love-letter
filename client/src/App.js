@@ -74,14 +74,14 @@ export default class App extends Component {
       name: '',
 
       // state for current game
-      initialDiscard: 4,
+      initialDiscardIndex: 4,
       standardDeck: [1,1,1,1,1,2,2,3,3,4,4,5,5,6,7,8],
-      cardsInDeck: [6, 4, 2, 2, 3, 1, 1, 8],
-      cardsPlayed: [1, 3, 5, 7],
+      cardsInDeck: [1, 1, 3, 4, 5, 6],
+      cardsPlayed: [1, 2],
       playerHandOne: [1, 2],
       playerHandTwo: [3],
       playerHandThree: [4],
-      playerHandFour: [8],
+      playerHandFour: [5],
       number: 3,
     }
   }
@@ -101,7 +101,7 @@ export default class App extends Component {
     this.setState({ number: this.generateNumber() })
     this.setState({ randomRoom: this.generateRandomRoom() })
     this.setState({ randRoom: this.GenerateRandomRoom })
-    this.setState({ initialDiscard: this.generateRandomDiscard() })
+    this.setState({ initialDiscardIndex: this.generateRandomDiscard() })
     // this.setState({ playerHandOne: this. })
     // this.setState({ playerHandTwo: this. })
     // this.setState({ playerHandThree: this. })
@@ -119,8 +119,12 @@ export default class App extends Component {
   }
 
   generateRandomDiscard = () => {
-    var initialDiscard =  Math.floor(Math.random() * (15 - 0 + 1) + 0)
-    return initialDiscard;
+    let initialDiscardIndex =  Math.floor(Math.random() * (15 - 0 + 1) + 0);
+    let standardDeck = [...this.state.standardDeck];
+    let ind = standardDeck.findIndex((ele)=> ele==initialDiscardIndex);
+    let updatedCardsInDeck = standardDeck.splice(ind,1);
+    this.setState({ cardsInDeck: standardDeck });
+    return initialDiscardIndex;
   }
 
   generateInitialHands = () => {
